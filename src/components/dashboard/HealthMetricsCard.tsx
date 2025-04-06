@@ -1,6 +1,6 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { HeartPulse, Lungs, MoveHorizontal } from "lucide-react";
+import { HeartPulse, Activity, MoveHorizontal } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 // Sample data
@@ -62,7 +62,7 @@ export function HealthMetricsCard() {
             color="bg-evergreen-500"
           />
           <Metric 
-            icon={<Lungs className="h-5 w-5 text-white" />}
+            icon={<Activity className="h-5 w-5 text-white" />}
             title="SpO2"
             value="98%"
             color="bg-skyblue-700"
