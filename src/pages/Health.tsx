@@ -1,8 +1,7 @@
-
 import { Layout } from "@/components/layout/Layout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { HeartPulse, Activity, MoveHorizontal, Brain, Lungs, ScrollText } from "lucide-react";
+import { HeartPulse, Activity, MoveHorizontal, Brain, ScrollText } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { useState } from "react";
 import { Progress } from "@/components/ui/progress";
