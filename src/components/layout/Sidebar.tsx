@@ -1,16 +1,18 @@
 
 import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { Calendar, ChevronLeft, ChevronRight, HeartPulse, Home, MessageSquare, Pill, Settings, Users } from "lucide-react";
+import { Calendar, ChevronLeft, ChevronRight, HeartPulse, Home, MessageSquare, Pill, Settings, Users, UserRound, CalendarClock } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const menuItems = [
   { name: 'Dashboard', icon: Home, path: '/' },
   { name: 'Health Metrics', icon: HeartPulse, path: '/health' },
   { name: 'Medications', icon: Pill, path: '/medications' },
+  { name: 'Daily Schedule', icon: CalendarClock, path: '/schedule' },
   { name: 'Social', icon: Users, path: '/social' },
-  { name: 'Calendar', icon: Calendar, path: '/calendar' },
   { name: 'Messages', icon: MessageSquare, path: '/messages' },
+  { name: 'My Profile', icon: UserRound, path: '/profile' },
   { name: 'Settings', icon: Settings, path: '/settings' },
 ];
 
@@ -20,6 +22,7 @@ interface SidebarProps {
 
 export function Sidebar({ className }: SidebarProps) {
   const [collapsed, setCollapsed] = useState(false);
+  const location = useLocation();
 
   return (
     <div className={cn(
@@ -49,17 +52,17 @@ export function Sidebar({ className }: SidebarProps) {
       
       <nav className="flex-1 py-6 px-3 space-y-3 overflow-y-auto">
         {menuItems.map((item) => (
-          <a
+          <Link
             key={item.name}
-            href={item.path}
+            to={item.path}
             className={cn(
               "flex items-center gap-4 px-3 py-3 rounded-lg text-sidebar-foreground hover:bg-sidebar-accent transition-colors",
-              item.path === '/' && "bg-primary/10 text-primary font-medium"
+              location.pathname === item.path && "bg-primary/10 text-primary font-medium"
             )}
           >
-            <item.icon className={cn("h-6 w-6 flex-shrink-0", item.path === '/' && "text-primary")} />
+            <item.icon className={cn("h-6 w-6 flex-shrink-0", location.pathname === item.path && "text-primary")} />
             {!collapsed && <span className="text-accessible truncate">{item.name}</span>}
-          </a>
+          </Link>
         ))}
       </nav>
       
