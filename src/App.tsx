@@ -13,6 +13,7 @@ import Medications from "./pages/Medications";
 import Social from "./pages/Social";
 import Messages from "./pages/Messages";
 import Settings from "./pages/Settings";
+import CaregiverPortal from "./pages/CaregiverPortal";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/social" element={<Social />} />
           <Route path="/messages" element={<Messages />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/caregiver" element={<CaregiverPortal />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
